@@ -14,7 +14,7 @@
                     <div class="col-md-12">
                         <nav>
                             <div  id="nav-tab" role="tablist" align="center">
-                                <h4> <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Rigistered Users</a></h4>
+                                <h4> <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Registered Users</a></h4>
 
                             </div>
                         </nav>
@@ -28,6 +28,7 @@
                                         <th>Member Number</th>
                                         <th>Member Name</th>
                                         <th>Member Address</th>
+                                        <th>Subscription Package</th>
                                         <th>Date of Joined</th>
 
                                     </tr>
@@ -41,6 +42,7 @@
                                             <td><a href="#">${user.member_id}</a></td>
                                             <td>${user.member_name}</td>
                                             <td>${user.member_address}</td>
+                                            <td>Free Tier</td>
                                                 <%--<td><fmt:formatDate value="${book.book_date_of_barrow}" pattern="dd-MM-YYYY"></fmt:formatDate> </td>
                                                 <td><fmt:formatDate value="${book.book_date_of_return}" pattern="dd-MM-YYYY"></fmt:formatDate> </td>--%>
                                             <td><fmt:formatDate value="${user.member_joined_date}" pattern="dd-MM-YYYY"></fmt:formatDate> </td>

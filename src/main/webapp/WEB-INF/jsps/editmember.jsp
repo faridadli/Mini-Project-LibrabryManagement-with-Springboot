@@ -29,7 +29,24 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
                                     </div>
-                                    <input type="text" class="form-control" id="nombre" name="membername" placeholder="Member Name" required>
+                                    <input type="text" class="form-control" id="nombre" name="membername" placeholder="Name" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
+                                    </div>
+                                    <input type="text" class="form-control" id="nombre" name="membergender" placeholder="Gender" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
+                                    </div>
+                                    <input type="text" class="form-control" id="nombre" name="memberage" placeholder="Age">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -37,24 +54,23 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text"><i class="fa fa-envelope text-info"></i></div>
                                     </div>
-                                    <input type="text" class="form-control" id="nombre" name="memberaddress" placeholder="Address place here">
+                                    <input type="text" class="form-control" id="nombre" name="memberaddress" placeholder="Address">
                                 </div>
-
-                                <div class="form-group">
-                                    <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
-                                        </div>
-                                        <input type="text" class="form-control" id="nombre" name="membergender" placeholder="Member Gender" required>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-envelope text-info"></i></span>
                                     </div>
+            
+                                    <select class="form-control" id="filtering" name="subscription">
+                                        <option selected hidden> Choose Subscription </option>
+                                        <c:forEach items="${memberlist}" var="member">
+                                        <option>${member.member_name}</option>
+            
+                                        </c:forEach>
+                                    </select>
                                 </div>
-                                <div class="form-group">
-                                    <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="fa fa-envelope text-info"></i></div>
-                                        </div>
-                                        <input type="text" class="form-control" id="nombre" name="memberage" placeholder="Age">
-                                    </div>
                             </div>
 
                             <%--<div class="form-group">

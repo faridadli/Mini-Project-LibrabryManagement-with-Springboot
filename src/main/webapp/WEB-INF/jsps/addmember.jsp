@@ -50,17 +50,32 @@
 
                 </div>
 
-                <div class="form-field col-lg-6" deselcted>
+                <!-- <div class="form-field col-lg-6" deselcted>
                     <%--<form:label path="member_dept">Enter MemberDepartment:</form:label>--%>
                     <form:input path="member_id" type="hidden" required="required" cssClass="input-text js-input" />
 
+                </div> -->
+
+                <div class="form-field col-lg-6">
+                    <form:label path="member_dept">Subscription Fee:</form:label>
+                    <form:input path="member_fee" required="required" cssClass="input-text js-input"/>
+
                 </div>
 
-                <div class="form-field col-lg-6" deselcted>
-                    <%--<form:label path="member_dept">Enter MemberDepartment:</form:label>--%>
-                    <form:input path="member_fee" type="hidden" required="required" cssClass="input-text js-input"/>
+                <div class="form-field col-lg-6">
+                    <form:label path="member_age">Subsription Package:</form:label>
+                    <div class="input-group form-group">
+                        <select class="form-control" id="filtering" name="memberName">
+                            <option selected hidden> Choose Package </option>
+                            <c:forEach items="${memberlist}" var="member">
+                            <option>${member.member_name}</option>
 
+                            </c:forEach>
+                        </select>
+                    </div>
                 </div>
+                
+
                <div class="form-field col-lg-12">
                     <input class="submit-btn" type="submit" value="Add Member">
                 </div>
