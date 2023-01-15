@@ -62,7 +62,9 @@
                         <select class="form-control " aria-live="polite" name="bookName">
                             <option selected hidden> Select Book One </option>
                             <c:forEach items="${bookslist}" var="book">
-                                <option data-tokens="some">${book.book_name}</option>
+                                <c:if test="${book.is_book_available}">
+                                    <option data-tokens="some">${book.book_name}</option>
+                                </c:if>
                             </c:forEach>
                         </select>
 
@@ -78,11 +80,12 @@
                                 <select class="form-control " aria-live="polite" name="bookName2">
                                 <option selected hidden> Select Book Two </option>
                                 <c:forEach items="${bookslist}" var="book">
-                                    <option data-tokens="some">${book.book_name}</option>
+                                    <c:if test="${book.is_book_available}">
+                                        <option data-tokens="some">${book.book_name}</option>
+                                    </c:if>
                                 </c:forEach>
                             </select>
-
-
+            
                         </div>
 
                         <div>
@@ -96,11 +99,15 @@
                                 <option hidden> Select Book Three </option>
 
                                 <c:forEach items="${bookslist}" var="book">
-                                    <option data-tokens="some">${book.book_name}</option>
+                                    <c:if test="${book.is_book_available}">
+                                        <option data-tokens="some">${book.book_name}</option>
+                                    </c:if>
                                 </c:forEach>
                             </select>
                         </div>
-
+                       
+      
+         
                         <div class="form-group">
                         <input type="submit" name="btn" value="Enter" class="btn btn-outline-primary float-right login_btn">
                     </div>

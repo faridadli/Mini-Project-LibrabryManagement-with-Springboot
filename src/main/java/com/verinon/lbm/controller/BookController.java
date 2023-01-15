@@ -133,10 +133,10 @@ public class BookController
     }
 
     @GetMapping("/del-smartbs")
-    public String whenReturnBook(@RequestParam String name, ModelMap model)
+    public String whenReturnBook(@RequestParam String bookName, ModelMap model)
     {
-
-        services1.delMember(name);
+        services1.delMember(bookName);
+        services.returnBook(bookName);
         return "redirect:show-barrow-list";
     }
 

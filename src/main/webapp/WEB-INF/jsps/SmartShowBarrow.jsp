@@ -55,7 +55,7 @@
                                             <%--<td><input type="date" class="date-picker date-picker-popup" required="please select date" name="dateofreturn"></td>--%>
 
 
-                                            <td><a href="/del-smartbs?name=${book.memberName}" class="btn btn-outline-danger">Remove</a></td>
+                                            <td><a href="/del-smartbs?bookName=${book.bookName}" class="btn btn-outline-danger">Remove</a></td>
                                         </tr>
                                     </c:forEach>
 
