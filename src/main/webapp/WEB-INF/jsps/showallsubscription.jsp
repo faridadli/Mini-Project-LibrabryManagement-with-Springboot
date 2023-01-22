@@ -3,6 +3,9 @@
 <div class="container" align="center">
     <%@include file="commons/header.jspf"%>
     <%@include file="commons/navigations.jspf"%>
+    <head>
+        <link href="AddBook.css" rel="stylesheet">
+    </head>
     <div>
         <%--      <h3>List Of All books has been shown here </h3>--%>
 
@@ -87,7 +90,24 @@
                     </div>
                 </div>
             </div>
-            <a href="/add-member" class="btn btn-success">Add New Subscription</a>
+            <section class="get-in-touch">
+                <h1 class="title">Add New Subscription</h1>
+                <%--@elvariable id="member" type="com.verinon.lbm.pojos.MemberPojo"--%>
+                <form:form method="post" modelAttribute="member" cssClass="contact-form row">
+    
+    
+                    <div class="form-field col-lg-6">
+                        <form:input path="Package" type="text" required="required" cssClass="input-text js-input"/>
+    
+                    </div>
+                    
+    
+                   <div class="form-field col-lg-12">
+                        <input class="submit-btn" type="submit" value="Add Package">
+                    </div>
+    
+                </form:form>
+            </section>
     </div>
     <%@include file="commons/footer.jspf"%>
 </div>

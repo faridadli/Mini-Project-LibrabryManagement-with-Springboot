@@ -38,6 +38,7 @@
                     <th>Date of Joined</th>
                     <th>Address</th>
                     <th>Department</th>
+                    <th>Membership</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -48,6 +49,7 @@
                         <td><fmt:formatDate value="${member.member_joined_date}" pattern="dd-MMM-YYYY"></fmt:formatDate> </td>
                         <td>${member.member_address}</td>
                         <td>${member.member_dept}</td>
+                        <td>${member.currentPackage}</td>
                     </tr>
                 </c:forEach>
                 </tbody>

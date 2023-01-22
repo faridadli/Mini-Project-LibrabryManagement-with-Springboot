@@ -78,6 +78,13 @@
                             </h5>
                         </tr>
 
+                        <tr>
+                            <h5>
+                                <td>Member Subscription</td>
+                                <td>${clickmember.currentPackage}</td>
+                            </h5>
+                        </tr>
+
 
 
                     </table>

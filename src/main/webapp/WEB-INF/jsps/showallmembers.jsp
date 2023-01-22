@@ -42,7 +42,7 @@
                                             <td><a href="#">${user.member_id}</a></td>
                                             <td>${user.member_name}</td>
                                             <td>${user.member_address}</td>
-                                            <td>Free Tier</td>
+                                            <td>${user.currentPackage}</td>
                                                 <%--<td><fmt:formatDate value="${book.book_date_of_barrow}" pattern="dd-MM-YYYY"></fmt:formatDate> </td>
                                                 <td><fmt:formatDate value="${book.book_date_of_return}" pattern="dd-MM-YYYY"></fmt:formatDate> </td>--%>
                                             <td><fmt:formatDate value="${user.member_joined_date}" pattern="dd-MM-YYYY"></fmt:formatDate> </td>

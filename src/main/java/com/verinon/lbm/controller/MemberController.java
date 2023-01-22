@@ -36,16 +36,16 @@ public class MemberController
     @GetMapping("/add-member")
     public String addMemberShowPage(ModelMap model)
     {
-        model.addAttribute("member",new MemberPojo(0,"username","address",1234567890,new Date(),125.25,"Computer","male/female",21));
+        model.addAttribute("member",new MemberPojo(0,"username","address",1234567890,new Date(),125.25,"Computer","male/female", 21, 0, "Subscription Package"));
 
         return "addmember";
     }
 
     @PostMapping("/add-member")
-    public String addMemberSuccess(ModelMap model,MemberPojo member)
+    public String addMemberSuccess(ModelMap model, MemberPojo member)
     {
 
-        services.addMember(member.getMember_name(),member.getMember_address(),member.getMember_phone_number(),member.getMember_dept(),member.getMember_gender(),member.getMember_age());
+        services.addMember(member.getMember_name(),member.getMember_address(),member.getMember_phone_number(),member.getMember_dept(),member.getMember_gender(),member.getMember_age(), member.getSubscription_fee(), member.getCurrentPackage());
         //memberRepository.save(member);
         return "redirect:show-listof-all-members";
     }
@@ -59,9 +59,9 @@ public class MemberController
     }
 
     @PostMapping("/edit-member")
-    public String editMemberDetails(int id, @RequestParam String membername, @RequestParam String memberaddress,@RequestParam String membergender, @RequestParam int memberage)
+    public String editMemberDetails(int id, @RequestParam String membername, @RequestParam String memberaddress,@RequestParam String membergender, @RequestParam int memberage, @RequestParam String currentPackage)
     {
-        services.editMember(id,membername,memberaddress,membergender,memberage);
+        services.editMember(id,membername,memberaddress,membergender,memberage,currentPackage);
         return "redirect:show-listof-all-members";
     }
 
@@ -97,4 +97,7 @@ public class MemberController
         }
         return "getMemberDetails";
     }
+
+
+
 }
