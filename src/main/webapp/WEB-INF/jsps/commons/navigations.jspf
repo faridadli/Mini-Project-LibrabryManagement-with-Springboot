@@ -183,7 +183,7 @@
                     Subscription
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="/show-listof-all-subscription">Add/Remove Subscription</a>
+                    <a class="dropdown-item" href="/show-listof-all-subscriptions">Add/Remove Subscription</a>
                 </div>
             </li>
         </ul>
