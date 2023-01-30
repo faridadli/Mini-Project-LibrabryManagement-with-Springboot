@@ -65,21 +65,17 @@ public class BookController
     }
 
     @PostMapping("/edit-book")
-    public String editBookDetails(int id, @RequestParam String bookname)
+    public String editBookDetails(int id, @RequestParam String bookname, @RequestParam String bookauthor, @RequestParam double bookprice)
     {
-        services.editBook(id,bookname);
-        /*if(bookRepository.existsById(id))
-        {
-            services.editBook(id,bookname);
-            bookPojo.setBook_name(bookname);
-            bookRepository.save(bookPojo);
-        }*/
+        services.editBook(id,bookname,bookauthor,bookprice);
         return "redirect:show-listof-all-books";
     }
 
     @GetMapping("/edit-book")
     public String editBookDetailsShowPage(ModelMap model)
     {
+        //insert here
+
         return "edit";
     }
 

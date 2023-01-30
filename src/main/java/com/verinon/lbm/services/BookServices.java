@@ -46,13 +46,17 @@ public class BookServices {
         }
     }
 
-    public void editBook(int id, String bookname) {
-        Iterator it = listOfBooks.iterator();
-
-        while (it.hasNext()) {
-            BookPojo bid = (BookPojo) it.next();
-            if (bid.getBook_id() == id) {
+    public void editBook(int id, String bookname, String bookauthor, double bookprice)
+    {
+        Iterator it= listOfBooks.iterator();
+        while (it.hasNext())
+        {
+            BookPojo bid=(BookPojo) it.next();
+            if(bid.getBook_id()==id)
+            {
                 bid.setBook_name(bookname);
+                bid.setBook_authors(bookauthor);
+                bid.setBook_price(bookprice);
             }
         }
     }
