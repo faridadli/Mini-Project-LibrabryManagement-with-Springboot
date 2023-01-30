@@ -28,7 +28,7 @@
                                         <th>Book Number</th>
                                         <th>Name</th>
                                         <th>Author</th>
-                                        <th>Price</th>
+                                        <th>Price (RM)</th>
                                         <th>Date of Entered</th>
 
                                     </tr>

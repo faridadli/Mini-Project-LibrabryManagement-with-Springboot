@@ -61,6 +61,17 @@ public class BookServices {
         }
     }
 
+    public BookPojo showEditBook(int id) {
+        Iterator it = listOfBooks.iterator();
+        while (it.hasNext()) {
+            BookPojo mybook = (BookPojo) it.next();
+            if (mybook.getBook_id() == id) {
+                return mybook;
+            }
+        }
+        return null;
+    }
+
     public BookPojo getBookDetails(String book_name) {
         Iterator it = listOfBooks.iterator();
 

@@ -68,7 +68,9 @@ public class BookController {
     }
 
     @GetMapping("/edit-book")
-    public String editBookDetailsShowPage(ModelMap model) {
+    public String editBookDetailsShowPage(ModelMap model, int id)
+    {
+        model.put("editbook", services.showEditBook(id));
         return "edit";
     }
 

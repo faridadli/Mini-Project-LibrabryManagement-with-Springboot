@@ -4,7 +4,6 @@
         <div class="container">
 
 <%--            <h2 class="text-center">Book Edit Settings</h2>--%>
-
             <div class="row justify-content-center">
                 <div class="col-12 col-md-8 col-lg-6 pb-5">
 
@@ -27,17 +26,7 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
                                         </div>
-                                        <input type="text" class="form-control" id="nombre" name="bookname" placeholder="Enter Book Name" value="${book.bookname}" required>
-                                    </div>
-                                </div>
-                                <p>${book.bookname}</p>
-
-                                <div class="form-group">
-                                    <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
-                                        </div>
-                                        <input type="text" class="form-control" id="nombre" name="bookauthor" placeholder="Enter Book Author" required>
+                                        <input type="text" class="form-control" id="nombre" name="bookname" placeholder="Enter Book Name" value="${editbook.book_name}" required>
                                     </div>
                                 </div>
 
@@ -46,7 +35,16 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
                                         </div>
-                                        <input type="text" class="form-control" id="nombre" name="bookprice" placeholder="Enter Book Price" required>
+                                        <input type="text" class="form-control" id="nombre" name="bookauthor" placeholder="Enter Book Author" value="${editbook.book_authors}" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">RM</i></div>
+                                        </div>
+                                        <input type="text" class="form-control" id="nombre" name="bookprice" placeholder="Enter Book Price" value="${editbook.book_price}" required>
                                     </div>
                                 </div>
 
