@@ -17,10 +17,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Date;
 
-
 @Controller
-public class BookController
-{
+public class BookController {
     @Autowired
     BookServices services;
 
@@ -30,37 +28,35 @@ public class BookController
     @Autowired
     BookRepository bookRepository;
 
+    BookPojo bookPojo = new BookPojo();
 
-    BookPojo bookPojo=new BookPojo();
     @RequestMapping("/show-listof-all-books")
-    public String showListOfBooks(ModelMap model)
-    {
-        model.put("listofbooks",services.showAllBooksData());
-        //model.put("listofbooks",bookRepository.findAll());
+    public String showListOfBooks(ModelMap model) {
+        model.put("listofbooks", services.showAllBooksData());
+        // model.put("listofbooks",bookRepository.findAll());
         return "showallbooks";
     }
 
     @GetMapping("/add-book")
-    public String addBooksShowPage(ModelMap model)
-    {
-        model.addAttribute("book",new BookPojo(0,"BookName", "Author Names", 100.25, "Department", new Date(),new Date(), new Date(), true));
+    public String addBooksShowPage(ModelMap model) {
+        model.addAttribute("book", new BookPojo(0, "BookName", "Author Names", 100.25, "Department", new Date(),
+                new Date(), new Date(), true));
         return "addbook";
     }
 
     @PostMapping("/add-book")
-    public String addBooks(ModelMap model,BookPojo book)
-    {
+    public String addBooks(ModelMap model, BookPojo book) {
 
-        services.addBook(book.getBook_name(),book.getBook_authors(),book.getBook_price(),book.getBook_published(),book.isIs_book_available(),book.getBook_dept());
-        //bookRepository.save(book);
+        services.addBook(book.getBook_name(), book.getBook_authors(), book.getBook_price(), book.getBook_published(),
+                book.isIs_book_available(), book.getBook_dept());
+        // bookRepository.save(book);
         return "redirect:show-listof-all-books";
     }
 
     @RequestMapping("/delete-book")
-    public String deleteBookFromList(int id)
-    {
+    public String deleteBookFromList(int id) {
         services.delBook(id);
-        //bookRepository.deleteById(id);
+        // bookRepository.deleteById(id);
         return "redirect:show-listof-all-books";
     }
 
@@ -72,106 +68,107 @@ public class BookController
     }
 
     @GetMapping("/edit-book")
-    public String editBookDetailsShowPage(ModelMap model)
-    {
-        //insert here
-
+    public String editBookDetailsShowPage(ModelMap model) {
         return "edit";
     }
 
     @GetMapping("/get-book-details")
-    public String getBookDetailsShowPage(ModelMap model)
-    {
+    public String getBookDetailsShowPage(ModelMap model) {
         model.put("searchbook", services.showAllBooksData());
-        //model.put("searchbook", bookRepository.findAll());
+        // model.put("searchbook", bookRepository.findAll());
         return "bookdetails";
     }
 
     @GetMapping("/get-book-tracking-details")
-    public String getBookTrackingDetailsShowPage(ModelMap model)
-    {
+    public String getBookTrackingDetailsShowPage(ModelMap model) {
         return "booktrackdetails";
     }
 
     @RequestMapping("/get-book-details-one")
-    public String getBookDetails(ModelMap model, @RequestParam String book_name)
-    {
-        model.put("clickbook",services.getBookDetails(book_name));
-        //model.put("clickbook",bookRepository.findByBook_name(book_name));
+    public String getBookDetails(ModelMap model, @RequestParam String book_name) {
+        model.put("clickbook", services.getBookDetails(book_name));
+        // model.put("clickbook",bookRepository.findByBook_name(book_name));
         {
 
-            model.put("error","No Subjects are available");
+            model.put("error", "No Subjects are available");
         }
         return "getbookdetails";
     }
 
     @GetMapping("/sml-main")
-    public String showMainPageForBookOperations(ModelMap model)
-    {
-        MemberServices memberServices= new MemberServices();
+    public String showMainPageForBookOperations(ModelMap model) {
+        MemberServices memberServices = new MemberServices();
         model.put("memberlist", memberServices.showAllMembersData());
         model.put("bookslist", services.showAllBooksData());
-        //model.put("moAttribute", new SmartBookSystem(" ",""));
+
+        // model.put("moAttribute", new SmartBookSystem(" ",""));
         return "smartbooksystem";
-        //return "selectpicker";
+        // return "selectpicker";
     }
 
-    //post is use when to submit form
+    // post is use when to submit form
     @PostMapping("/sml-main")
-    public String forBookBarrow(ModelMap model, @RequestParam String memberName, @RequestParam String bookName,@RequestParam String bookName2,@RequestParam String bookName3)
-    {
-       /* model.put("name",memberName);
-        model.put("bname",bookName);
-        model.put("bname2",bookName2);
-        model.put("bname3",bookName3);*/
+    public String forBookBarrow(ModelMap model, @RequestParam String memberName, @RequestParam String bookName,
+            @RequestParam String bookName2, @RequestParam String bookName3) {
+        /*
+         * model.put("name",memberName);
+         * model.put("bname",bookName);
+         * model.put("bname2",bookName2);
+         * model.put("bname3",bookName3);
+         */
+        int allowedAmount = 2; // specify the allowed amount of books to borrow
+        int borrowCount = 0;
+        if (bookName != "" && !bookName.isEmpty()  && !bookName.equals("Select Book One")) {
+            borrowCount++;
+        }
+        if (bookName2 != "" && !bookName2.isEmpty() && !bookName2.equals("Select Book Two")) {
+            borrowCount++;
+        }
+        if (bookName3 != "" && !bookName3.isEmpty()  && !bookName3.equals("Select Book Three")) {
+            borrowCount++;
+        }
+        
+        if (borrowCount > allowedAmount) {
+            model.put("errorMessage", "You are borrowing more books than the allowed amount. Please borrow only "
+                    + allowedAmount + " books.");
+            return "error";
+        }
 
-        model.put("data",services1.getDetailsAboutMember(memberName,bookName,bookName2,bookName3, new Date()));
+        model.put("data", services1.getDetailsAboutMember(memberName, bookName, bookName2, bookName3, new Date()));
         return "SmartShowBarrow";
     }
 
-    @RequestMapping("/del-smartbs")
-    public String whenReturnBook(@RequestParam String bookName,@RequestParam String member, ModelMap model)
-    {
-        // services1.delMember(bookName);
-
-        //to set book is available
+    @GetMapping("/del-smartbs")
+    public String whenReturnBook(@RequestParam String bookName, ModelMap model) {
+        services1.delMember(bookName);
         services.returnBook(bookName);
         
-        //add returned date
-        model.put("member",member);
-        //delete from display list and to history list
-        services1.checkMember(member, bookName);
         return "redirect:show-barrow-list";
     }
 
     @RequestMapping("/set-returndate")
-    public String setReturnDate(@RequestParam String member,@RequestParam String bookName, ModelMap model)
-    {
-        model.put("member",member);
+    public String setReturnDate(@RequestParam String member, ModelMap model) {
         // services1.checkMember(member);
+        model.put("member", member);
         return "redirect:show-barrow-list";
     }
 
-    //to redirect to return book page with data books
+    // to redirect to return book page with data books
     @RequestMapping("/return-book")
-    public String returnBookShowPage(@RequestParam String member, ModelMap model)
-    {
+    public String returnBookShowPage(@RequestParam String member, ModelMap model) {
         model.put("books", services1.getBorrowedList(member));
         return "returnbook";
     }
 
     @GetMapping("/show-barrow-list")
-    public String showBarrowBookPage(ModelMap model)
-    {
-        model.put("data",services1.getTotalDetails());
+    public String showBarrowBookPage(ModelMap model) {
+        model.put("data", services1.getTotalDetails());
         return "SmartShowBarrow";
     }
 
-
     @GetMapping("/show-total-history")
-    public String showTotalHistory(ModelMap model)
-    {
-        model.put("total",services1.showTotalHistory());
+    public String showTotalHistory(ModelMap model) {
+        model.put("total", services1.showTotalHistory());
         return "totalhistory";
     }
 }

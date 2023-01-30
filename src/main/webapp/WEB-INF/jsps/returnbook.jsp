@@ -40,7 +40,7 @@
 
                                     <tbody>
                                         <tr></tr>
-                                        <c:if test="${books.bookName != ''}">
+                                        <c:if test="${books.bookName != '' && books.bookName != 'Select Book One'}">
                                             <tr>
                                                 <td>${books.bookName}</td>
                                                 <td><fmt:formatDate value="${books.dateOfBooked}" pattern="dd-MM-YYYY"></fmt:formatDate> </td>
@@ -48,14 +48,14 @@
                                                 <td><a href="/del-smartbs?bookName=${books.bookName}&member=${books.memberName}" class="btn btn-success">Return</a></td>
                                             </tr>
                                         </c:if>   
-                                        <c:if test="${books.bookName2 != ''}">
+                                        <c:if test="${books.bookName2 != '' && books.bookName2 != 'Select Book Two'}">
                                             <tr>
                                                 <td>${books.bookName2}</td>
                                                 <td><fmt:formatDate value="${books.dateOfBooked}" pattern="dd-MM-YYYY"></fmt:formatDate> </td>
                                                 <td><a href="/del-smartbs?bookName=${books.bookName2}&member=${books.memberName}" class="btn btn-success">Return</a></td>
                                             </tr>
                                         </c:if>
-                                        <c:if test="${books.bookName3 != ''}">
+                                        <c:if test="${books.bookName3 != '' && books.bookName3 != 'Select Book Three'}">
                                             <tr>
                                                 <td>${books.bookName3}</td>
                                                 <td><fmt:formatDate value="${books.dateOfBooked}" pattern="dd-MM-YYYY"></fmt:formatDate> </td>
