@@ -118,16 +118,16 @@ public class BookController {
          */
         int allowedAmount = 2; // specify the allowed amount of books to borrow
         int borrowCount = 0;
-        if (bookName != null && !bookName.isEmpty()) {
+        if (bookName != "" && !bookName.isEmpty()  && !bookName.equals("Select Book One")) {
             borrowCount++;
         }
-        if (bookName2 != null && !bookName2.isEmpty()) {
+        if (bookName2 != "" && !bookName2.isEmpty() && !bookName2.equals("Select Book Two")) {
             borrowCount++;
         }
-        if (bookName3 != null && !bookName3.isEmpty()) {
+        if (bookName3 != "" && !bookName3.isEmpty()  && !bookName3.equals("Select Book Three")) {
             borrowCount++;
         }
-
+        
         if (borrowCount > allowedAmount) {
             model.put("errorMessage", "You are borrowing more books than the allowed amount. Please borrow only "
                     + allowedAmount + " books.");
@@ -139,14 +139,10 @@ public class BookController {
     }
 
     @GetMapping("/del-smartbs")
-    public String whenReturnBook(@RequestParam String bookName, @RequestParam String bookName2,
-            @RequestParam String bookName3, ModelMap model) {
+    public String whenReturnBook(@RequestParam String bookName, ModelMap model) {
         services1.delMember(bookName);
         services.returnBook(bookName);
-        if (!bookName2.isEmpty())
-            services.returnBook(bookName2);
-        if (!bookName3.isEmpty())
-            services.returnBook(bookName3);
+        
         return "redirect:show-barrow-list";
     }
 
