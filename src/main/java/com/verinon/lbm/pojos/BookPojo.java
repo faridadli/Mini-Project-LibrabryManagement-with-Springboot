@@ -127,6 +127,7 @@ public class BookPojo
         BookPojo bookPojo = (BookPojo) o;
 
         if (book_id != bookPojo.book_id) return false;
+
         return book_name.equals(bookPojo.book_name);
 
     }
@@ -134,7 +135,7 @@ public class BookPojo
     @Override
     public int hashCode() {
         int result = book_id;
-        result = 31 * result + book_name.hashCode();
+        result = 31 * result + book_name.hashCode() + book_authors.hashCode() + book_price.hashCode();
         return result;
     }
 
