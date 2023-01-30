@@ -120,6 +120,7 @@ public class BookController
         //return "selectpicker";
     }
 
+    //post is use when to submit form
     @PostMapping("/sml-main")
     public String forBookBarrow(ModelMap model, @RequestParam String memberName, @RequestParam String bookName,@RequestParam String bookName2,@RequestParam String bookName3)
     {
@@ -132,20 +133,35 @@ public class BookController
         return "SmartShowBarrow";
     }
 
-    @GetMapping("/del-smartbs")
-    public String whenReturnBook(@RequestParam String bookName, ModelMap model)
+    @RequestMapping("/del-smartbs")
+    public String whenReturnBook(@RequestParam String bookName,@RequestParam String member, ModelMap model)
     {
-        services1.delMember(bookName);
+        // services1.delMember(bookName);
+
+        //to set book is available
         services.returnBook(bookName);
+        
+        //add returned date
+        model.put("member",member);
+        //delete from display list and to history list
+        services1.checkMember(member, bookName);
         return "redirect:show-barrow-list";
     }
 
     @RequestMapping("/set-returndate")
-    public String setReturnDate(@RequestParam String member, ModelMap model)
+    public String setReturnDate(@RequestParam String member,@RequestParam String bookName, ModelMap model)
     {
         model.put("member",member);
-        services1.checkMember(member);
+        // services1.checkMember(member);
         return "redirect:show-barrow-list";
+    }
+
+    //to redirect to return book page with data books
+    @RequestMapping("/return-book")
+    public String returnBookShowPage(@RequestParam String member, ModelMap model)
+    {
+        model.put("books", services1.getBorrowedList(member));
+        return "returnbook";
     }
 
     @GetMapping("/show-barrow-list")

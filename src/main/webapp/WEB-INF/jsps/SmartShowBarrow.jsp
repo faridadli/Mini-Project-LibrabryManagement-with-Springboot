@@ -18,7 +18,7 @@
                     <div class="col-md-12">
                         <nav>
                             <div  id="nav-tab" role="tablist" align="center">
-                                <h4> <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Barrow Book Details</a></h4>
+                                <h4> <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Borrow Book Details</a></h4>
 
                             </div>
                         </nav>
@@ -51,11 +51,9 @@
                                                 <%--<td><fmt:formatDate value="${book.book_date_of_barrow}" pattern="dd-MM-YYYY"></fmt:formatDate> </td>
                                                 <td><fmt:formatDate value="${book.book_date_of_return}" pattern="dd-MM-YYYY"></fmt:formatDate> </td>--%>
                                             <td><fmt:formatDate value="${book.dateOfBooked}" pattern="dd-MM-YYYY"></fmt:formatDate> </td>
-                                            <td><a href="/set-returndate?member=${book.memberName}" class="btn btn-success"> Return</a> </td>
-                                            <%--<td><input type="date" class="date-picker date-picker-popup" required="please select date" name="dateofreturn"></td>--%>
-
-
-                                            <td><a href="/del-smartbs?bookName=${book.bookName}" class="btn btn-outline-danger">Remove</a></td>
+                                            <td><a href="/return-book?member=${book.memberName}" class="btn btn-success">Choose</a></td>
+                                            <%-- <td><a href="/set-returndate?member=${book.memberName}&bookName=${book.bookName}" class="btn btn-success"> Choose Book to Return</a> </td> --%>
+                                            <%-- <td><input type="date" class="date-picker date-picker-popup" required="please select date" name="dateofreturn"></td> --%>
                                         </tr>
                                     </c:forEach>
 
@@ -69,6 +67,7 @@
                     </div>
                 </div>
             </div>
+            <!-- when click button, it will go to @GetMapping and display page add new entry -->
             <a href="/sml-main" class="btn btn-success">Add New Entry</a>
     </div>
     <%@include file="commons/footer.jspf"%>
