@@ -26,8 +26,9 @@
                                     <thead>
                                     <tr>
                                         <th>Book Number</th>
-                                        <th>Book Name</th>
+                                        <th>Name</th>
                                         <th>Author</th>
+                                        <th>Price</th>
                                         <th>Date of Entered</th>
 
                                     </tr>
@@ -41,6 +42,7 @@
                                         <td><a href="#">${book.book_id}</a></td>
                                         <td>${book.book_name}</td>
                                         <td>${book.book_authors}</td>
+                                        <td>${book.book_price}</td>
                                         <%--<td><fmt:formatDate value="${book.book_date_of_barrow}" pattern="dd-MM-YYYY"></fmt:formatDate> </td>
                                         <td><fmt:formatDate value="${book.book_date_of_return}" pattern="dd-MM-YYYY"></fmt:formatDate> </td>--%>
                                         <td><fmt:formatDate value="${book.book_published}" pattern="dd-MM-YYYY"></fmt:formatDate> </td>
