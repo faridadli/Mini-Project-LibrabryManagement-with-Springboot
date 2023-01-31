@@ -15,13 +15,43 @@ public class SmartBookSystem
     String memberName;
     Date dateOfBooked;
     Date dateOfReturn;
+    boolean is_book1_available;
+    boolean is_book2_available;
+    boolean is_book3_available;
 
-    public SmartBookSystem(String memberName,String bookName, String bookName2, String bookName3, Date date) {
+    public SmartBookSystem(String memberName,String bookName, String bookName2, String bookName3, Date date, boolean is_book1_available, boolean is_book2_available, boolean is_book3_available) {
         this.bookName = bookName;
         this.bookName2 = bookName2;
         this.bookName3 = bookName3;
         this.memberName = memberName;
+        this.is_book1_available = is_book1_available;
+        this.is_book2_available = is_book2_available;
+        this.is_book3_available = is_book3_available;
         dateOfBooked=date;
+    }
+
+    public boolean isIs_book1_available() {
+        return is_book1_available;
+    }
+
+    public void setIs_book1_available(boolean is_book1_available) {
+        this.is_book1_available = is_book1_available;
+    }
+
+    public boolean isIs_book2_available() {
+        return is_book2_available;
+    }
+
+    public void setIs_book2_available(boolean is_book2_available) {
+        this.is_book2_available = is_book2_available;
+    }
+
+    public boolean isIs_book3_available() {
+        return is_book3_available;
+    }
+
+    public void setIs_book3_available(boolean is_book3_available) {
+        this.is_book3_available = is_book3_available;
     }
 
     public String getBookName() {
@@ -82,6 +112,9 @@ public class SmartBookSystem
                 ", memberName='" + memberName + '\'' +
                 ", dateOfBooked=" + dateOfBooked +
                 ", dateOfReturn=" + dateOfReturn +
+                ", is_book1_available=" + is_book1_available +
+                ", is_book2_available=" + is_book2_available +
+                ", is_book3_available=" + is_book3_available +
                 '}';
     }
 }

@@ -26,7 +26,25 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
                                         </div>
-                                        <input type="text" class="form-control" id="nombre" name="bookname" placeholder="Enter Book Name" required>
+                                        <input type="text" class="form-control" id="nombre" name="bookname" placeholder="Enter Book Name" value="${editbook.book_name}" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
+                                        </div>
+                                        <input type="text" class="form-control" id="nombre" name="bookauthor" placeholder="Enter Book Author" value="${editbook.book_authors}" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">RM</i></div>
+                                        </div>
+                                        <input type="text" class="form-control" id="nombre" name="bookprice" placeholder="Enter Book Price" value="${editbook.book_price}" required>
                                     </div>
                                 </div>
 
