@@ -45,7 +45,7 @@ public class SubscriptionController {
     {
         services.delSubscription(id);
         //bookRepository.deleteById(id);
-        return "redirect:show-listof-all-books";
+        return "redirect:show-listof-all-subscriptions";
     }
 
     @PostMapping("/edit-subscription")
