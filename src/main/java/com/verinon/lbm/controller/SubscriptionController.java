@@ -29,13 +29,12 @@ public class SubscriptionController {
     public String addSubscriptionsShowPage(ModelMap model)
     {
         model.addAttribute("subscription", new SubscriptionPojo(0, "Tier", 0.0, 0, "Accessibility"));
-        return "addsubscription";
+        return "addSubscription";
     }
 
     @PostMapping("/add-subscription")
     public String addSubscriptions(ModelMap model, SubscriptionPojo subscription)
     {
-
         services.addSubscription(subscription.getSubsc_tier(), subscription.getSubsc_fee(), subscription.getSubsc_limit(), subscription.getSubsc_accessibility());
         //bookRepository.save(book);
         return "redirect:show-listof-all-subscriptions";

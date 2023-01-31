@@ -16,6 +16,7 @@
     <div class="form-field col-lg-6">
         <form:label path="subsc_tier" cssClass="lable">Enter Subscription Tier:</form:label>
         <form:input path="subsc_tier" required="required" cssClass="input-text js-input"></form:input>
+        <form:input path="subsc_id" type="hidden" cssClass="input-text js-input" />
     </div>
 
         <div class="form-field col-lg-6">
