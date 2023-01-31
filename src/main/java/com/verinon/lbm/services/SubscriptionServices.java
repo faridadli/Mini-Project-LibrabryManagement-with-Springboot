@@ -46,11 +46,23 @@ public class SubscriptionServices {
             SubscriptionPojo bid = (SubscriptionPojo) it.next();
             if (bid.getSubsc_id() == id) {
                 bid.setSubsc_tier(tier);
-                bid.setSubsc_fee(null);
+                bid.setSubsc_fee(fee);
                 bid.setSubsc_limit(limit);
                 bid.setSubsc_accessibility(accessibility);
             }
         }
+    }
+
+    public SubscriptionPojo showEditSubscription(int id) {
+        Iterator it = listOfSubscriptions.iterator();
+
+        while (it.hasNext()) {
+            SubscriptionPojo mysubcription = (SubscriptionPojo) it.next();
+            if (mysubcription.getSubsc_id() == id) {
+                return mysubcription;
+            }
+        }
+        return null;
     }
 
     public SubscriptionPojo getSubscriptionDetails(String tier) {
