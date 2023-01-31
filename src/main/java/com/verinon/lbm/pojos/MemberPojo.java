@@ -148,9 +148,8 @@ public class MemberPojo {
         this.member_dept = member_dept;
     }
 
-    public MemberPojo(int member_id, String member_name, String member_address, long member_phone_number,
-            Date member_joined_date, double member_fee, String member_dept, String member_gender, int member_age,
-            double subscription_fee, String currentPackage, int member_books_quantity) {
+
+    public MemberPojo(int member_id, String member_name, String member_address, long member_phone_number, Date member_joined_date, double member_fee,String member_dept, String member_gender,int member_age, String SubscriptionPackage ) {
         this.member_id = member_id;
         this.member_name = member_name;
         this.member_address = member_address;
@@ -158,14 +157,14 @@ public class MemberPojo {
         this.member_joined_date = member_joined_date;
         this.member_fee = member_fee;
         this.member_fee = member_fee;
-        this.member_books_quantity = member_books_quantity;
+        // this.member_books_quantity = member_books_quantity;
         this.member_dept = member_dept;
-        this.member_age = member_age;
-        this.member_gender = member_gender;
-        this.subscription_fee = subscription_fee;
-        this.currentPackage = currentPackage;
-        addMemberSubscriptionPackage("free");
-        addMemberSubscriptionPackage("Premium");
+        this.member_age=member_age;
+        this.member_gender=member_gender;
+        // this.subscription_fee=subscription_fee;
+        this.currentPackage=SubscriptionPackage;
+        // addMemberSubscriptionPackage("Free");
+        // addMemberSubscriptionPackage("Premium");
 
     }
 
@@ -184,7 +183,7 @@ public class MemberPojo {
                 ", member_dept='" + member_dept + '\'' +
                 ", member_gender='" + member_gender + '\'' +
                 ", member_age=" + member_age +
-                ", subscription_fee=" + subscription_fee +
+                // ", subscription_fee=" + subscription_fee +
                 ", currentPackage=" + currentPackage +
                 '}';
     }
