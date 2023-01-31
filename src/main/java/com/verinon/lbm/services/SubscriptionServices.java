@@ -46,7 +46,7 @@ public class SubscriptionServices {
             SubscriptionPojo bid = (SubscriptionPojo) it.next();
             if (bid.getSubsc_id() == id) {
                 bid.setSubsc_tier(tier);
-                bid.setSubsc_fee(null);
+                bid.setSubsc_fee(fee);
                 bid.setSubsc_limit(limit);
                 bid.setSubsc_accessibility(accessibility);
             }
