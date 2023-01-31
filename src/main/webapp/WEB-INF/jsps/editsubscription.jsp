@@ -31,7 +31,7 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
                                     </div>
-                                    <input type="text" class="form-control" id="nombre" name="tier" placeholder="${editsubscription.subsc_tier}" required>
+                                    <input type="text" class="form-control" id="nombre" name="tier" value="${editsubscription.subsc_tier}" required>
                                 </div>
                             </div>
 
@@ -40,7 +40,7 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
                                     </div>
-                                    <input type="text" class="form-control" id="nombre" name="fee" placeholder="${editsubscription.subsc_fee}" required>
+                                    <input type="text" class="form-control" id="nombre" name="fee" value="${editsubscription.subsc_fee}" required>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -48,7 +48,7 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
                                     </div>
-                                    <input type="text" class="form-control" id="nombre" name="limit" placeholder="${editsubscription.subsc_limit}">
+                                    <input type="text" class="form-control" id="nombre" name="limit" value="${editsubscription.subsc_limit}">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -56,7 +56,7 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
                                     </div>
-                                    <input type="text" class="form-control" id="nombre" name="accessibility" placeholder="${editsubscription.subsc_accessibility}">
+                                    <input type="text" class="form-control" id="nombre" name="accessibility" value="${editsubscription.subsc_accessibility}">
                                 </div>
                             </div>
                             <%--<div class="form-group">

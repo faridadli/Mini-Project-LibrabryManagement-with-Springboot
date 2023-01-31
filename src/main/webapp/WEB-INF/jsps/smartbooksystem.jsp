@@ -40,12 +40,10 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
-
                         <select class="form-control" id="filtering" name="memberName">
                             <option selected hidden> Choose Member </option>
                             <c:forEach items="${memberlist}" var="member">
                             <option>${member.member_name}</option>
-
                             </c:forEach>
                         </select>
 

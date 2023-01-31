@@ -36,7 +36,7 @@ public class MemberController
     @GetMapping("/add-member")
     public String addMemberShowPage(ModelMap model)
     {
-        model.addAttribute("member",new MemberPojo(0,"username","address",1234567890,new Date(),125.25,"Computer","male/female", 21, 0, ""));
+        model.addAttribute("member",new MemberPojo(0,"username","address",1234567890,new Date(),125.25,"Computer","male/female", 21, 0, "", 0));
 
         return "addmember";
     }
@@ -45,7 +45,7 @@ public class MemberController
     public String addMemberSuccess(ModelMap model, MemberPojo member)
     {
 
-        services.addMember(member.getMember_name(),member.getMember_address(),member.getMember_phone_number(),member.getMember_dept(),member.getMember_gender(),member.getMember_age(), member.getSubscription_fee(), member.getCurrentPackage());
+        services.addMember(member.getMember_name(),member.getMember_address(),member.getMember_phone_number(),member.getMember_dept(),member.getMember_gender(),member.getMember_age(), member.getSubscription_fee(), member.getCurrentPackage(), member.getMember_books_quantity());
         //memberRepository.save(member);
         return "redirect:show-listof-all-members";
     }
