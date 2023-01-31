@@ -44,9 +44,9 @@
                                         <tr>
 
                                             <td><a href="#">${book.memberName}</a></td>
-                                            <td>${book.bookName}<br/>
-                                                    ${book.bookName2}<br/>
-                                                    ${book.bookName3}</td>
+                                            <td>${book.is_book1_available ? '' : book.bookName}<br/>
+                                                    ${book.is_book2_available ? '' : book.bookName2}<br/>
+                                                    ${book.is_book3_available ? '' : book.bookName3}</td>
 
                                                 <%--<td><fmt:formatDate value="${book.book_date_of_barrow}" pattern="dd-MM-YYYY"></fmt:formatDate> </td>
                                                 <td><fmt:formatDate value="${book.book_date_of_return}" pattern="dd-MM-YYYY"></fmt:formatDate> </td>--%>

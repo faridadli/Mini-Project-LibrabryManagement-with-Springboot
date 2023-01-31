@@ -19,7 +19,6 @@
                         <nav>
                             <div  id="nav-tab" role="tablist" align="center">
                                 <h4> <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Borrowed Books By ${books.memberName} </a></h4>
-
                             </div>
                         </nav>
                         <div class="tab-content" id="nav-tabContent">
@@ -40,7 +39,7 @@
 
                                     <tbody>
                                         <tr></tr>
-                                        <c:if test="${books.bookName != '' && books.bookName != 'Select Book One'}">
+                                        <c:if test="${books.bookName != '' && !books.is_book1_available}">
                                             <tr>
                                                 <td>${books.bookName}</td>
                                                 <td><fmt:formatDate value="${books.dateOfBooked}" pattern="dd-MM-YYYY"></fmt:formatDate> </td>
@@ -48,14 +47,14 @@
                                                 <td><a href="/del-smartbs?bookName=${books.bookName}&member=${books.memberName}" class="btn btn-success">Return</a></td>
                                             </tr>
                                         </c:if>   
-                                        <c:if test="${books.bookName2 != '' && books.bookName2 != 'Select Book Two'}">
+                                        <c:if test="${books.bookName2 != '' && !books.is_book2_available}">
                                             <tr>
                                                 <td>${books.bookName2}</td>
                                                 <td><fmt:formatDate value="${books.dateOfBooked}" pattern="dd-MM-YYYY"></fmt:formatDate> </td>
                                                 <td><a href="/del-smartbs?bookName=${books.bookName2}&member=${books.memberName}" class="btn btn-success">Return</a></td>
                                             </tr>
                                         </c:if>
-                                        <c:if test="${books.bookName3 != '' && books.bookName3 != 'Select Book Three'}">
+                                        <c:if test="${books.bookName3 != '' && !books.is_book3_available}">
                                             <tr>
                                                 <td>${books.bookName3}</td>
                                                 <td><fmt:formatDate value="${books.dateOfBooked}" pattern="dd-MM-YYYY"></fmt:formatDate> </td>
