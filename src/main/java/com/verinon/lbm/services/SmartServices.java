@@ -61,16 +61,23 @@ public class SmartServices {
 
     public void delMember(String member, String bookName) {
         Iterator it = smartBookSystems.iterator();
+        Iterator it2 = totalHostory.iterator();
 
-        while (it.hasNext()) {
+        while (it.hasNext() && it2.hasNext()) {
+            SmartBookSystem history = (SmartBookSystem) it2.next();
             SmartBookSystem sbs = (SmartBookSystem) it.next();
             if (sbs.getMemberName().equalsIgnoreCase(member)) {
+                history.setDateOfReturn(new Date());
+
                 if (sbs.getBookName().equalsIgnoreCase(bookName)) {
                     sbs.setIs_book1_available(true);
+                    history.setBookName(bookName);
                 } else if (sbs.getBookName2().equalsIgnoreCase(bookName)) {
                     sbs.setIs_book2_available(true);
+                    history.setBookName2(bookName);
                 } else if (sbs.getBookName3().equalsIgnoreCase(bookName)) {
                     sbs.setIs_book3_available(true);
+                    history.setBookName3(bookName);
                 }
 
                 if (sbs.isIs_book1_available() && sbs.isIs_book2_available() && sbs.isIs_book3_available()) {
