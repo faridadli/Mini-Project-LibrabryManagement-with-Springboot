@@ -27,9 +27,12 @@
                             <tr>
                                 <td>${count.count}</td>
                                 <td><a href="#">${book.memberName}</a></td>
-                                <td>${book.bookName} ,
-                                        ${book.bookName2},
-                                        ${book.bookName3}</td>
+                                
+                                <td>
+                                    <c:if test="${book.bookName!=''}">${book.bookName} ,</c:if>
+                                    <c:if test="${book.bookName2!=''}">${book.bookName2},</c:if>
+                                    <c:if test="${book.bookName3!=''}">${book.bookName3}</c:if>
+                                </td>
 
                                     <%--<td><fmt:formatDate value="${book.book_date_of_barrow}" pattern="dd-MM-YYYY"></fmt:formatDate> </td>
                                     <td><fmt:formatDate value="${book.book_date_of_return}" pattern="dd-MM-YYYY"></fmt:formatDate> </td>--%>
