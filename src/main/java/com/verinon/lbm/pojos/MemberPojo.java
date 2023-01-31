@@ -157,7 +157,7 @@ public class MemberPojo
     }
 
 
-    public MemberPojo(int member_id, String member_name, String member_address, long member_phone_number, Date member_joined_date, double member_fee,String member_dept, String member_gender,int member_age, double subscription_fee, String SubscriptionPackage ) {
+    public MemberPojo(int member_id, String member_name, String member_address, long member_phone_number, Date member_joined_date, double member_fee,String member_dept, String member_gender,int member_age, double subscription_fee, String currentPackage ) {
         this.member_id = member_id;
         this.member_name = member_name;
         this.member_address = member_address;
@@ -170,7 +170,7 @@ public class MemberPojo
         this.member_age=member_age;
         this.member_gender=member_gender;
         this.subscription_fee=subscription_fee;
-        this.currentPackage=SubscriptionPackage;
+        this.currentPackage=currentPackage;
         addMemberSubscriptionPackage("free");
         addMemberSubscriptionPackage("Premium");
 
@@ -193,7 +193,7 @@ public class MemberPojo
                 ", member_gender='" + member_gender + '\'' +
                 ", member_age=" + member_age +
                 ", subscription_fee=" + subscription_fee +
-                ", memberSubscriptionPackage=" + memberSubscriptionPackage +
+                ", currentPackage=" + currentPackage +
                 '}';
     }
 

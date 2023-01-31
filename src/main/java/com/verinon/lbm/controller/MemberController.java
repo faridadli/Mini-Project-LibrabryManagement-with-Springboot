@@ -36,7 +36,7 @@ public class MemberController
     @GetMapping("/add-member")
     public String addMemberShowPage(ModelMap model)
     {
-        model.addAttribute("member",new MemberPojo(0,"username","address",1234567890,new Date(),125.25,"Computer","male/female", 21, 0, "Subscription Package"));
+        model.addAttribute("member",new MemberPojo(0,"username","address",1234567890,new Date(),125.25,"Computer","male/female", 21, 0, ""));
 
         return "addmember";
     }

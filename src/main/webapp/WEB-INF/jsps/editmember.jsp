@@ -29,10 +29,10 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
                                     </div>
-                                    <input type="text" class="form-control" id="nombre" name="membername" placeholder="Name" required>
+                                    <input type="text" class="form-control" id="nombre" name="membername" placeholder="Name"  required>
                                 </div>
                             </div>
-
+ 
                             <div class="form-group">
                                 <div class="input-group mb-2">
                                     <div class="input-group-prepend">
@@ -57,23 +57,23 @@
                                     <input type="text" class="form-control" id="nombre" name="memberaddress" placeholder="Address">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <div class="input-group mb-2">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fa fa-envelope text-info"></i></span>
-                                    </div>
-            
-                                    <select class="form-control" id="filtering" name="subscription">
-                                        <option selected hidden> Choose Subscription </option>
-                                        <c:forEach items="${memberlist}" var="member">
-                                        <option>${member.member_name}</option>
-            
-                                        </c:forEach>
-                                    </select>
+                            
+                            <div class="form-field col-lg-6">
+                                <form:label path="currentPackage">Subscription Package:</form:label>
+                                <div class="input-group form-group">
+                                  <select class="form-control" id="filtering" name="currentPackage" required>
+                                    <option selected hidden value="">Choose Package</option>
+                                    <c:forEach items="${member.memberSubscriptionPackage}" var="currentPackage">
+                                      <option value="${currentPackage}" 
+                                        <c:if test="${currentPackage eq selectedPackage}"> selected </c:if>>
+                                        ${currentPackage}</option>
+                                    </c:forEach>
+                                  </select>
                                 </div>
-                            </div>
-
-                            <%--<div class="form-group">
+                              </div>
+                            
+                            
+                            <!-- <%--<div class="form-group">
                                 <div class="input-group mb-2">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text"><i class="fa fa-comment text-info"></i></div>
@@ -81,9 +81,9 @@
                                     <textarea class="form-control" placeholder="Envianos tu Mensaje"></textarea>
                                 </div>
                             </div>
---%>
+--%> -->
                             <div class="text-center">
-                                <input type="submit" value="Save" class="btn btn-info btn-block rounded-0 py-2">
+                                <input type="submit" value="Change" class="btn btn-info btn-block rounded-0 py-2">
                             </div>
                         </div>
 
