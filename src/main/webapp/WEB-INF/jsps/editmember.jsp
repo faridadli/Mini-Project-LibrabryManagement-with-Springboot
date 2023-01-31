@@ -57,18 +57,15 @@
                                     <input type="text" class="form-control" id="nombre" name="memberaddress" placeholder="Address">
                                 </div>
                             </div>
-                            
                             <div class="form-field col-lg-6">
-                                <form:label path="currentPackage">Subscription Package:</form:label>
+                                <form:label path="memberSubscriptionPackage">Subscription Package:</form:label>
                                 <div class="input-group form-group">
-                                  <select class="form-control" id="filtering" name="currentPackage" required>
-                                    <option selected hidden value="">Choose Package</option>
-                                    <c:forEach items="${member.memberSubscriptionPackage}" var="currentPackage">
-                                      <option value="${currentPackage}" 
-                                        <c:if test="${currentPackage eq selectedPackage}"> selected </c:if>>
-                                        ${currentPackage}</option>
-                                    </c:forEach>
-                                  </select>
+                                    <select class="form-control" id="filtering" name="currentPackage">
+                                        <option selected hidden> Choose Package </option>
+                                        <c:forEach items="${sublist}" var="sub">
+                                        <option>${sub.subsc_tier}</option>
+                                        </c:forEach>
+                                    </select>
                                 </div>
                               </div>
                             

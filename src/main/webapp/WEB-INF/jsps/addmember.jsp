@@ -44,13 +44,6 @@
                     <form:input path="member_age" type="number" required="required" cssClass="input-text js-input"/>
 
                 </div>
-
-                <!-- <div class="form-field col-lg-6" deselcted>
-                    <%--<form:label path="member_dept">Enter MemberDepartment:</form:label>--%>
-                    <form:input path="member_id" type="hidden" required="required" cssClass="input-text js-input" />
-
-                </div> -->
-
                 <div class="form-field col-lg-6">
                     <form:label path="member_gender">Gender:</form:label>
                     <div class="input-group form-group">
@@ -59,7 +52,14 @@
                         <option value="Male" <c:if test="${member.member_gender eq 'Male'}"> selected </c:if>>Male</option>
                         <option value="Female" <c:if test="${member.member_gender eq 'Female'}"> selected </c:if>>Female</option>
                       </select>
+                    </div>
                 </div>
+
+                <!-- <div class="form-field col-lg-6" deselcted>
+                    <%--<form:label path="member_dept">Enter MemberDepartment:</form:label>--%>
+                    <form:input path="member_id" type="hidden" required="required" cssClass="input-text js-input" />
+
+                </div> -->
                 <div class="form-field col-lg-6">
                     <form:label path="memberSubscriptionPackage">Subscription Package:</form:label>
                     <div class="input-group form-group">
@@ -75,7 +75,7 @@
 
                <div class="form-field col-lg-12">
                     <input class="submit-btn" type="submit" value="Add Member">
-                </div>
+               </div>
 
             </form:form>
         </section>

@@ -72,6 +72,8 @@ public class MemberController
     @GetMapping("/edit-member")
     public String editMemberDetailsShowPage(ModelMap model)
     {
+        SubscriptionServices subscriptionServices = new SubscriptionServices();
+        model.put("sublist", subscriptionServices.showAllSubscriptionsData());
         model.put("members", services.showAllMembersData());
         return "editmember";
     }
