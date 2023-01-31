@@ -51,7 +51,7 @@ public class SubscriptionController {
     @PostMapping("/edit-subscription")
     public String editSubscriptionDetails(int id, @RequestParam String tier, @RequestParam double fee, @RequestParam int limit, @RequestParam String accessibility)
     {
-        services.editSubscription(id,tier, fee, limit, accessibility);
+        services.editSubscription(id ,tier, fee, limit, accessibility);
         /*if(bookRepository.existsById(id))
         {
             services.editBook(id,bookname);
