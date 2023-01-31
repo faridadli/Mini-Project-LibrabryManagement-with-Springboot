@@ -37,12 +37,7 @@
 
                 </div>
 
-                <div class="form-field col-lg-6">
 
-                    <form:label path="member_gender">Gender:</form:label>
-                    <form:input path="member_gender" type="text" required="required" cssClass="input-text js-input"/>
-
-                </div class="form-field col-lg-6">
 
                 <div class="form-field col-lg-6">
                     <form:label path="member_age">Age:</form:label>
@@ -63,18 +58,49 @@
                 </div>
 
                 <div class="form-field col-lg-6">
-                    <form:label path="memberSubscriptionPackage">Subscription Package:</form:label>
+                    <form:label path="member_gender">Gender:</form:label>
                     <div class="input-group form-group">
-                        <select class="form-control" id="filtering" name="memberName">
-                            <option selected hidden> Choose Package </option>
-                            <c:forEach items="${member.memberSubscriptionPackage}" var="currentPackage">
-                                <option value="${currentPackage}" 
-                                <c:if test="${currentPackage eq selectedPackage}"> selected </c:if>>
-                                ${currentPackage}</option>
-                            </c:forEach>
-                        </select>
+                      <select class="form-control" id="filtering" name="member_gender">
+                        <option selected hidden> Choose Gender </option>
+                        <option value="Male" <c:if test="${member.member_gender eq 'Male'}"> selected </c:if>>Male</option>
+                        <option value="Female" <c:if test="${member.member_gender eq 'Female'}"> selected </c:if>>Female</option>
+                      </select>
                     </div>
-                </div>
+                  </div>
+
+                <!-- tester -->
+                <!-- <div class="form-field col-lg-6">
+                    <form:label path="memberSubscriptionPackage">memberSubscriptionPackage:</form:label>
+                    <form:input path="memberSubscriptionPackage" type="text" required="required" cssClass="input-text js-input"/>
+
+                </div> -->
+<!-- 
+                <div class="form-field col-lg-6">
+                    <form:label path="currentPackage">Subscription Package:</form:label>
+                    <div class="input-group form-group">
+                      <select class="form-control" id="filtering" name="currentPackage" required>
+                        <option selected hidden> Choose Package </option>
+                        <c:forEach items="${member.memberSubscriptionPackage}" var="currentPackage">
+                          <option value="${currentPackage}" 
+                            <c:if test="${currentPackage eq selectedPackage}"> selected </c:if>>
+                            ${currentPackage}</option>
+                        </c:forEach>
+                      </select>
+                    </div>
+                  </div> -->
+                  <div class="form-field col-lg-6">
+                    <form:label path="currentPackage">Subscription Package:</form:label>
+                    <div class="input-group form-group">
+                      <select class="form-control" id="filtering" name="currentPackage" required>
+                        <option selected hidden value="">Choose Package</option>
+                        <c:forEach items="${member.memberSubscriptionPackage}" var="currentPackage">
+                          <option value="${currentPackage}" 
+                            <c:if test="${currentPackage eq selectedPackage}"> selected </c:if>>
+                            ${currentPackage}</option>
+                        </c:forEach>
+                      </select>
+                    </div>
+                  </div>
                 
 
                <div class="form-field col-lg-12">

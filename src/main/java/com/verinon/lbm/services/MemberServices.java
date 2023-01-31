@@ -62,7 +62,7 @@ public class MemberServices {
         }
     }
 
-    public void editMember(int id, String membername, String memberaddress, String membergender, int age, String currentPackage)
+    public void editMember(int id, String membername, String memberaddress, String membergender, int memberage, String currentPackage)
     {
         Iterator it = listOfMembers.iterator();
         while (it.hasNext())
@@ -72,7 +72,7 @@ public class MemberServices {
             {
                 bid.setMember_name(membername);
                 bid.setMember_address(memberaddress);
-                bid.setMember_age(age);
+                bid.setMember_age(memberage);
                 bid.setMember_gender(membergender);
                 bid.setCurrentPackage(currentPackage);
                 
