@@ -62,8 +62,9 @@ public class SubscriptionController {
     }
 
     @GetMapping("/edit-subscription")
-    public String editSubscriptionDetailsShowPage(ModelMap model)
+    public String editSubscriptionDetailsShowPage(ModelMap model, int id)
     {
+        model.put("editsubscription", services.showEditSubscription(id));
         return "editsubscription";
     }
 

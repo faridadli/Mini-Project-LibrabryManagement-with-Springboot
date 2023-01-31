@@ -53,6 +53,18 @@ public class SubscriptionServices {
         }
     }
 
+    public SubscriptionPojo showEditSubscription(int id) {
+        Iterator it = listOfSubscriptions.iterator();
+
+        while (it.hasNext()) {
+            SubscriptionPojo mysubcription = (SubscriptionPojo) it.next();
+            if (mysubcription.getSubsc_id() == id) {
+                return mysubcription;
+            }
+        }
+        return null;
+    }
+
     public SubscriptionPojo getSubscriptionDetails(String tier) {
         Iterator it = listOfSubscriptions.iterator();
 
