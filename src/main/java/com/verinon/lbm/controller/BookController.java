@@ -6,6 +6,8 @@ import com.verinon.lbm.pojos.SmartBookSystem;
 import com.verinon.lbm.services.BookServices;
 import com.verinon.lbm.services.MemberServices;
 import com.verinon.lbm.services.SmartServices;
+import com.verinon.lbm.services.SubscriptionServices;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
@@ -24,6 +26,12 @@ public class BookController {
 
     @Autowired
     SmartServices services1;
+
+    @Autowired
+    MemberServices memberService;
+
+    @Autowired
+    SubscriptionServices subService;
 
     @Autowired
     BookRepository bookRepository;
@@ -61,15 +69,14 @@ public class BookController {
     }
 
     @PostMapping("/edit-book")
-    public String editBookDetails(int id, @RequestParam String bookname, @RequestParam String bookauthor, @RequestParam double bookprice)
-    {
-        services.editBook(id,bookname,bookauthor,bookprice);
+    public String editBookDetails(int id, @RequestParam String bookname, @RequestParam String bookauthor,
+            @RequestParam double bookprice) {
+        services.editBook(id, bookname, bookauthor, bookprice);
         return "redirect:show-listof-all-books";
     }
 
     @GetMapping("/edit-book")
-    public String editBookDetailsShowPage(ModelMap model, int id)
-    {
+    public String editBookDetailsShowPage(ModelMap model, int id) {
         model.put("editbook", services.showEditBook(id));
         return "edit";
     }
@@ -112,24 +119,19 @@ public class BookController {
     @PostMapping("/sml-main")
     public String forBookBarrow(ModelMap model, @RequestParam String memberName, @RequestParam String bookName,
             @RequestParam String bookName2, @RequestParam String bookName3) {
-        /*
-         * model.put("name",memberName);
-         * model.put("bname",bookName);
-         * model.put("bname2",bookName2);
-         * model.put("bname3",bookName3);
-         */
-        int allowedAmount = 2; // specify the allowed amount of books to borrow
+
+        int allowedAmount = subService.getSubscriptionDetails(memberService.getMemberDetails(memberName).getCurrentPackage()).getSubsc_limit();
         int borrowCount = 0;
-        if (bookName != "" && !bookName.isEmpty()  && !bookName.equals("Select Book One")) {
+        if (bookName != "" && !bookName.isEmpty() && !bookName.equals("Select Book One")) {
             borrowCount++;
         }
         if (bookName2 != "" && !bookName2.isEmpty() && !bookName2.equals("Select Book Two")) {
             borrowCount++;
         }
-        if (bookName3 != "" && !bookName3.isEmpty()  && !bookName3.equals("Select Book Three")) {
+        if (bookName3 != "" && !bookName3.isEmpty() && !bookName3.equals("Select Book Three")) {
             borrowCount++;
         }
-        
+       
         if (borrowCount > allowedAmount) {
             model.put("errorMessage", "You are borrowing more books than the allowed amount. Please borrow only "
                     + allowedAmount + " books.");
@@ -144,7 +146,7 @@ public class BookController {
     public String whenReturnBook(@RequestParam String bookName, @RequestParam String member, ModelMap model) {
         services1.delMember(member, bookName);
         services.returnBook(bookName);
-        
+
         return "redirect:show-barrow-list";
     }
 

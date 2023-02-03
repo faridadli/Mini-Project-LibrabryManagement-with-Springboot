@@ -5,6 +5,8 @@ import com.verinon.lbm.jpa.MemberRepository;
 import com.verinon.lbm.pojos.MemberPojo;
 
 import com.verinon.lbm.services.MemberServices;
+import com.verinon.lbm.services.SubscriptionServices;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -36,16 +38,18 @@ public class MemberController
     @GetMapping("/add-member")
     public String addMemberShowPage(ModelMap model)
     {
-        model.addAttribute("member",new MemberPojo(0,"username","address",1234567890,new Date(),125.25,"Computer","male/female", 21, 0, ""));
+        SubscriptionServices subscriptionServices = new SubscriptionServices();
+        model.put("sublist", subscriptionServices.showAllSubscriptionsData());
+        model.addAttribute("member",new MemberPojo(0,"username","address",1234567890,new Date(),125.25,"Computer","male/female", 21, "Free"));
 
         return "addmember";
     }
 
     @PostMapping("/add-member")
-    public String addMemberSuccess(ModelMap model, MemberPojo member)
+    public String addMemberSuccess(ModelMap model, MemberPojo member, @RequestParam String currentPackage)
     {
 
-        services.addMember(member.getMember_name(),member.getMember_address(),member.getMember_phone_number(),member.getMember_dept(),member.getMember_gender(),member.getMember_age(), member.getSubscription_fee(), member.getCurrentPackage());
+        services.addMember(member.getMember_name(),member.getMember_address(),member.getMember_phone_number(),member.getMember_dept(),member.getMember_gender(),member.getMember_age(), currentPackage);
         //memberRepository.save(member);
         return "redirect:show-listof-all-members";
     }
@@ -68,6 +72,8 @@ public class MemberController
     @GetMapping("/edit-member")
     public String editMemberDetailsShowPage(ModelMap model)
     {
+        SubscriptionServices subscriptionServices = new SubscriptionServices();
+        model.put("sublist", subscriptionServices.showAllSubscriptionsData());
         model.put("members", services.showAllMembersData());
         return "editmember";
     }

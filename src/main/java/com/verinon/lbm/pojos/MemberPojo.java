@@ -6,8 +6,7 @@ import javax.persistence.Id;
 import java.util.Date;
 
 @Entity
-public class MemberPojo
-{
+public class MemberPojo {
     @Id
     @GeneratedValue
     int member_id;
@@ -28,8 +27,6 @@ public class MemberPojo
     String[] memberSubscriptionPackage;
     String currentPackage;
 
-
-
     public String getCurrentPackage() {
         return currentPackage;
     }
@@ -38,8 +35,6 @@ public class MemberPojo
         this.currentPackage = currentPackage;
     }
 
-
-
     public String[] getMemberSubscriptionPackage() {
         return memberSubscriptionPackage;
     }
@@ -47,24 +42,23 @@ public class MemberPojo
     public void setMemberSubscriptionPackage(String[] memberSubscriptionPackage) {
         this.memberSubscriptionPackage = memberSubscriptionPackage;
     }
-    
+
     public void addMemberSubscriptionPackage(String pac) {
-                //Check if the array is empty, if so create a new array with size 1
-                if (memberSubscriptionPackage == null) {
-                    memberSubscriptionPackage = new String[1];
-                    memberSubscriptionPackage[0] = pac;
-                } else {
-                    //Create a new array with one extra element
-                    String[] newArray = new String[memberSubscriptionPackage.length + 1];
-                    //Copy elements from the old array to the new array
-                    System.arraycopy(memberSubscriptionPackage, 0, newArray, 0, memberSubscriptionPackage.length);
-                    //Add the new element to the new array
-                    newArray[newArray.length - 1] = pac;
-                    //Reassign the new array to the memberSubscriptionPackage
-                    memberSubscriptionPackage = newArray;
-                }
+        // Check if the array is empty, if so create a new array with size 1
+        if (memberSubscriptionPackage == null) {
+            memberSubscriptionPackage = new String[1];
+            memberSubscriptionPackage[0] = pac;
+        } else {
+            // Create a new array with one extra element
+            String[] newArray = new String[memberSubscriptionPackage.length + 1];
+            // Copy elements from the old array to the new array
+            System.arraycopy(memberSubscriptionPackage, 0, newArray, 0, memberSubscriptionPackage.length);
+            // Add the new element to the new array
+            newArray[newArray.length - 1] = pac;
+            // Reassign the new array to the memberSubscriptionPackage
+            memberSubscriptionPackage = newArray;
+        }
     }
-    
 
     public double getSubscription_fee() {
         return subscription_fee;
@@ -73,8 +67,6 @@ public class MemberPojo
     public void setSubscription_fee(double subscription_fee) {
         this.subscription_fee = subscription_fee;
     }
-
- 
 
     public int getMember_id() {
         return member_id;
@@ -157,7 +149,7 @@ public class MemberPojo
     }
 
 
-    public MemberPojo(int member_id, String member_name, String member_address, long member_phone_number, Date member_joined_date, double member_fee,String member_dept, String member_gender,int member_age, double subscription_fee, String currentPackage ) {
+    public MemberPojo(int member_id, String member_name, String member_address, long member_phone_number, Date member_joined_date, double member_fee,String member_dept, String member_gender,int member_age, String SubscriptionPackage ) {
         this.member_id = member_id;
         this.member_name = member_name;
         this.member_address = member_address;
@@ -165,17 +157,16 @@ public class MemberPojo
         this.member_joined_date = member_joined_date;
         this.member_fee = member_fee;
         this.member_fee = member_fee;
-        //this.member_books_quantity = member_books_quantity;
+        // this.member_books_quantity = member_books_quantity;
         this.member_dept = member_dept;
         this.member_age=member_age;
         this.member_gender=member_gender;
-        this.subscription_fee=subscription_fee;
-        this.currentPackage=currentPackage;
-        addMemberSubscriptionPackage("free");
-        addMemberSubscriptionPackage("Premium");
+        // this.subscription_fee=subscription_fee;
+        this.currentPackage=SubscriptionPackage;
+        // addMemberSubscriptionPackage("Free");
+        // addMemberSubscriptionPackage("Premium");
 
     }
-
 
     @Override
     public String toString() {
@@ -192,7 +183,7 @@ public class MemberPojo
                 ", member_dept='" + member_dept + '\'' +
                 ", member_gender='" + member_gender + '\'' +
                 ", member_age=" + member_age +
-                ", subscription_fee=" + subscription_fee +
+                // ", subscription_fee=" + subscription_fee +
                 ", currentPackage=" + currentPackage +
                 '}';
     }
@@ -213,9 +204,7 @@ public class MemberPojo
         this.member_age = member_age;
     }
 
-
-    public MemberPojo()
-    {
+    public MemberPojo() {
 
     }
 }

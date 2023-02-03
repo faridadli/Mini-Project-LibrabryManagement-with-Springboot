@@ -20,9 +20,9 @@ public class MemberServices {
     static
     {
         mid=4;
-        listOfMembers.add( new MemberPojo(1,"Name A","Hyd",13278964875l,new Date(),0,"CSE","male",25, 0, "free"));
-        listOfMembers.add( new MemberPojo(2,"Name B","Sec",13278964875l,new Date(),0,"CSE","male",27, 20, "Premium"));
-        listOfMembers.add( new MemberPojo(3,"Name C","Blr",13278964875l,new Date(),0,"CSE","female",22, 20, "Premium"));
+        listOfMembers.add( new MemberPojo(1,"Name A","Hyd",13278964875l,new Date(),0,"CSE","male",25, "Free"));
+        listOfMembers.add( new MemberPojo(2,"Name B","Sec",13278964875l,new Date(),0,"CSE","male",27, "Premium"));
+        listOfMembers.add( new MemberPojo(3,"Name C","Blr",13278964875l,new Date(),0,"CSE","female",22, "Premium"));
 
     }
 
@@ -34,11 +34,11 @@ public class MemberServices {
 
     }
 
-    public List<MemberPojo> addMember(String member_name,String member_address,long member_phone_number,String member_dept,String member_gender, int member_age, double Subscription_fee, String currentPackage)
+    public List<MemberPojo> addMember(String member_name,String member_address,long member_phone_number,String member_dept,String member_gender, int member_age, String currentPackage)
     {
 
 
-        listOfMembers.add(new MemberPojo(mid++,member_name,member_address,member_phone_number,new Date(),00.0,member_dept,member_gender,member_age, Subscription_fee, currentPackage ));
+        listOfMembers.add(new MemberPojo(mid++,member_name,member_address,member_phone_number,new Date(),00.0,member_dept,member_gender,member_age, currentPackage ));
 
         // listOfMembers.add( new MemberPojo(3,"C","Blr",13278964875l,new Date(),0,"CSE"));
         //int member_id, String member_name, String member_address, long member_phone_number, Date member_joined_date, double member_fee,String member_dept
